@@ -1,0 +1,1 @@
+INSERT INTO city VALUES (1, 'Seoul'), (2, 'New York'), (3, 'Busan');
