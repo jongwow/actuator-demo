@@ -19,9 +19,27 @@ management:
   endpoints:
     web:
       exposure:
-        include: prometheus, health
+        include: prometheus, health, info
+  info:
+    env:
+      enabled: true
+    git:
+      enabled: true
+      mode: "full"
+    build:
+      enabled: true
+    java:
+      enable: true
+    os:
+      enable: true
+    process:
+      enabled: true
 
-
+info:
+  app:
+    foobar: "helloWorld"
+  java:
+    version: "${ext.javaVersion}"
 
 logging:
   level:
