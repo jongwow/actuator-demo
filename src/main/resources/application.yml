@@ -16,10 +16,42 @@ spring:
 
 
 management:
+  #=== enabled-by-default: false 를 설정하면 해야함 ===#
+  endpoint:
+    health:
+      enabled: true
+    prometheus:
+      enabled: true
+    info:
+      enabled: true
+    loggers:
+      enabled: true
+  #========#
   endpoints:
+    enabled-by-default: false
     web:
       exposure:
-        include: prometheus, health, info
+        include: prometheus, health, info, loggers
+  #include: health
+  #include: health, info
+  #include: health, info, prometheus
+  #include: health, info, prometheus, loggers
+#=== EVERYTHING ===#
+#  info:
+#    env:
+#      enabled: true
+#    git:
+#      enabled: true
+#      mode: "full"
+#    build:
+#      enabled: true
+#    java:
+#      enable: true
+#    os:
+#      enable: true
+#    process:
+#      enabled: true
+#=== EVERYTHING ===#
   info:
     env:
       enabled: true
@@ -41,7 +73,12 @@ info:
   java:
     version: "${ext.javaVersion}"
 
+
 logging:
   level:
+    root: info
     org.hibernate.SQL: debug
     org.hibernate.type: trace
+
+server:
+  shutdown: graceful # default immediate

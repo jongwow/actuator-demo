@@ -9,3 +9,13 @@
 
 
   
+## How to Run
+
+- Grafana 준비
+```shell
+# ./dockers
+docker-compose up
+```
+
+- Application Run
+  - IDE 추천
